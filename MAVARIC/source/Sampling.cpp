@@ -119,11 +119,12 @@ void Sampling::sample_elec(){
   for (int i=0; i<num_beads; i++) {
     mcMove = num_states * rand_bead(mt);
 
-   for(int state=0; state<num_states; state++){
-     mcMove = mcMove + state; 
+    for(int state=0; state<num_states; state++){
 
-     x_prop[mcMove] = x[mcMove] + elec_dist(mt);
-     p_prop[mcMove] = p[mcMove] + elec_dist(mt);
+      x_prop[mcMove] = x[mcMove] + elec_dist(mt);
+      p_prop[mcMove] = p[mcMove] + elec_dist(mt);
+
+      mcMove = mcMove + state; 
     }
   }
   

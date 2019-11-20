@@ -62,8 +62,6 @@ void MonteCarlo::runMC(){
   }
 
   for(int step=0; step<MC_steps; step++){
-    //cout << "step: " << step << endl;
-
 
     if(unif_1(mt) > 0.5){
       sample_system();
@@ -73,7 +71,7 @@ void MonteCarlo::runMC(){
       sample_elec();
     }
  
-    estimator_total += estimator;//*sgn_theta;
+    estimator_total += estimator;
     sgn_total += sgn_theta;
     if(step % esti_rate == 0){
       estimator_t[esti_samples] = estimator_total/(sgn_total + 1);
@@ -134,11 +132,11 @@ void MonteCarlo::sample_elec(){
   for (int i=0; i<num_beads; i++) {
     mcMove = num_states * rand_bead(mt);
 
-   for(int state=0; state<num_states; state++){
-     mcMove = mcMove + state; 
+    for(int state=0; state<num_states; state++){
 
-     x_prop[mcMove] = x[mcMove] + elec_dist(mt);
-     p_prop[mcMove] = p[mcMove] + elec_dist(mt);
+      x_prop[mcMove] = x[mcMove] + elec_dist(mt);
+      p_prop[mcMove] = p[mcMove] + elec_dist(mt);
+      mcMove = mcMove + 1; 
     }
   }
   
