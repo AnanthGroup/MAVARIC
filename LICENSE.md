@@ -1,1 +1,2 @@
-Please cite MAVARIC using [![DOI](https://zenodo.org/badge/223014169.svg)](https://zenodo.org/badge/latestdoi/223014169)
+Please cite MAVARIC using https://zenodo.org/badge/latestdoi/223014169
+
